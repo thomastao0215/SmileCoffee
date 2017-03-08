@@ -7,8 +7,7 @@
 //
 
 import UIKit
-import CoreImage
-import ImageIO
+
 
 
 class ViewController: UIViewController {
@@ -23,9 +22,7 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    let dector = CIDetectorSmile
-    var feature = CIFaceFeature()
-    
+
 
 }
 

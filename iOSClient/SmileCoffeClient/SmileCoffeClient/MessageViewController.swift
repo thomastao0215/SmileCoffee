@@ -19,15 +19,19 @@ class MessageViewController: UIViewController {
     
     @IBOutlet var Label2: UILabel!
     
+    fileprivate var onceFlag = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         Coffe.image = Coffe.image?.withRenderingMode(.alwaysTemplate)
         Coffe.tintColor = UIColor.brown
     }
     override func viewDidAppear(_ animated: Bool) {
-
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3 ) {
-            self.present()
+        if !onceFlag {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 3 ) {
+                self.present()
+            }
+            onceFlag = true
         }
     }
 
@@ -36,9 +40,7 @@ class MessageViewController: UIViewController {
             let vc = self.storyboard?.instantiateViewController(withIdentifier: "vs")
             AudioServicesPlaySystemSound(114)
             self.present(vc!, animated: true, completion: nil)
-            self.removeFromParentViewController()
         }
-
     }
     
     func http() {

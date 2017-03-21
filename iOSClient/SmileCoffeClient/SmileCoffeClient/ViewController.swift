@@ -12,23 +12,35 @@ import AudioToolbox
 
 class ViewController: UIViewController {
 
-
+    private var noteObserver: AnyObject!
 
     @IBOutlet var Label1: UILabel!
     @IBOutlet var Label2: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        self.noteObserver = NotificationCenter.default.addObserver(forName: .precedureFinished, object: nil, queue: OperationQueue.main) { [unowned self] _ in
+            self.dismiss(animated: true, completion: nil)
+        }
     }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        self.view.alpha = 0
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
-        self.removeFromParentViewController()
+        super.viewDidAppear(animated)
+        
+        UIView.animate(withDuration: 0.4) { 
+            self.view.alpha = 1
+        }
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self.noteObserver)
     }
-
 
 }
 

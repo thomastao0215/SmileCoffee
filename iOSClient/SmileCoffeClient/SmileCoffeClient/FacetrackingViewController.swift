@@ -45,6 +45,9 @@ class FaceTrackingViewController: UIViewController {
     var stillOutput = AVCaptureStillImageOutput()
     var borderLayer: CAShapeLayer?
     
+    fileprivate var hasSmile = false
+    fileprivate var isSmileDetected = false
+    
     let detailsView: DetailsView = {
         let detailsView = DetailsView()
         detailsView.setup()
@@ -129,6 +132,10 @@ extension FaceTrackingViewController {
 
 extension FaceTrackingViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
     func captureOutput(_ captureOutput: AVCaptureOutput!, didOutputSampleBuffer sampleBuffer: CMSampleBuffer!, from connection: AVCaptureConnection!) {
+        if self.isSmileDetected {
+            return
+        }
+        
         let pixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer)
         let attachments = CMCopyDictionaryOfAttachments(kCFAllocatorDefault, sampleBuffer, kCMAttachmentMode_ShouldPropagate)
         let ciImage = CIImage(cvImageBuffer: pixelBuffer!, options: attachments as! [String : Any]?)
@@ -148,22 +155,26 @@ extension FaceTrackingViewController: AVCaptureVideoDataOutputSampleBufferDelega
                 let featureDetails = ["是否有微笑: \(faceFeature.hasSmile)"]
                 update(with: faceRect, text: featureDetails.joined(separator: "\n"))
                 if faceFeature.hasSmile {
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                        DispatchQueue.main.async() {
-                            let vc = self.storyboard?.instantiateViewController(withIdentifier: "ms")
-                            self.present(vc!, animated: true, completion: nil)
-                            self.removeFromParentViewController()
-                            return
-                        }
+                    self.isSmileDetected = true
+                    DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2)) {
+                        self.session?.stopRunning()
+                        let vc = self.storyboard?.instantiateViewController(withIdentifier: "ms")
+                        self.present(vc!, animated: true, completion: nil)
+                        AudioServicesPlaySystemSound(1114)
+                        //self.removeFromParentViewController()
+                        return
                     }
-
+                    return
                 }
             }
         }
         
         if features.count == 0 {
-            DispatchQueue.main.async {
-                self.detailsView.alpha = 0.0
+            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2)) {
+                // Wait for 1 second to see whether we really cannot detect any faces.
+                if !self.hasSmile {
+                    self.detailsView.alpha = 0
+                }
             }
         }
         

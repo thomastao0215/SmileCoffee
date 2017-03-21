@@ -17,6 +17,7 @@
 		8A1E431A1E7FF2A5006AEDDC /* FacetrackingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1E43191E7FF2A5006AEDDC /* FacetrackingViewController.swift */; };
 		8A1E431C1E800C04006AEDDC /* AffairsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1E431B1E800C04006AEDDC /* AffairsViewController.swift */; };
 		8AEFFD821E80E4510087B8AB /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AEFFD811E80E4500087B8AB /* MessageViewController.swift */; };
+		FA86322D1E8123EA00E9EE86 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA86322C1E8123EA00E9EE86 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		8A1E43191E7FF2A5006AEDDC /* FacetrackingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacetrackingViewController.swift; sourceTree = "<group>"; };
 		8A1E431B1E800C04006AEDDC /* AffairsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AffairsViewController.swift; sourceTree = "<group>"; };
 		8AEFFD811E80E4500087B8AB /* MessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
+		FA86322C1E8123EA00E9EE86 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +87,7 @@
 		8A1E42F51E7FEC9B006AEDDC /* SmileCoffeClient */ = {
 			isa = PBXGroup;
 			children = (
+				FA86322C1E8123EA00E9EE86 /* Constants.swift */,
 				8A1E42F61E7FEC9C006AEDDC /* AppDelegate.swift */,
 				8A1E42F81E7FEC9C006AEDDC /* ViewController.swift */,
 				8A1E42FA1E7FEC9C006AEDDC /* Main.storyboard */,
@@ -158,7 +161,7 @@
 				TargetAttributes = {
 					8A1E42F21E7FEC9B006AEDDC = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = FBYF9V6M6A;
+						DevelopmentTeam = S8ZP685HLU;
 						ProvisioningStyle = Automatic;
 					};
 					8A1E43091E7FEC9C006AEDDC = {
@@ -217,6 +220,7 @@
 				8A1E431C1E800C04006AEDDC /* AffairsViewController.swift in Sources */,
 				8A1E42FF1E7FEC9C006AEDDC /* SmileCoffeClient.xcdatamodeld in Sources */,
 				8A1E42F91E7FEC9C006AEDDC /* ViewController.swift in Sources */,
+				FA86322D1E8123EA00E9EE86 /* Constants.swift in Sources */,
 				8AEFFD821E80E4510087B8AB /* MessageViewController.swift in Sources */,
 				8A1E42F71E7FEC9C006AEDDC /* AppDelegate.swift in Sources */,
 			);
@@ -355,10 +359,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = FBYF9V6M6A;
+				DEVELOPMENT_TEAM = S8ZP685HLU;
 				INFOPLIST_FILE = SmileCoffeClient/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "Thomas-Tao.SmileCoffeClient";
+				PRODUCT_BUNDLE_IDENTIFIER = com.cyandev.smilecoffeeclient;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -368,10 +372,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = FBYF9V6M6A;
+				DEVELOPMENT_TEAM = S8ZP685HLU;
 				INFOPLIST_FILE = SmileCoffeClient/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "Thomas-Tao.SmileCoffeClient";
+				PRODUCT_BUNDLE_IDENTIFIER = com.cyandev.smilecoffeeclient;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};

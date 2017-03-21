@@ -38,7 +38,7 @@
                                 <rect key="frame" x="90" y="193" width="235" height="237"/>
                                 <state key="normal" title="Button" image="5"/>
                                 <connections>
-                                    <segue destination="Dto-sg-bEH" kind="show" identifier="MainToFace" id="J71-3P-xKb"/>
+                                    <segue destination="Dto-sg-bEH" kind="presentation" identifier="MainToFace" id="J71-3P-xKb"/>
                                 </connections>
                             </button>
                         </subviews>

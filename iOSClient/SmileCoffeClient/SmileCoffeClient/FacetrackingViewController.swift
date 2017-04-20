@@ -83,6 +83,7 @@ class FaceTrackingViewController: UIViewController {
         view.layer.addSublayer(previewLayer)
         view.addSubview(detailsView)
         view.bringSubview(toFront: detailsView)
+        
     }
     
     override func viewDidLoad() {
@@ -156,10 +157,14 @@ extension FaceTrackingViewController: AVCaptureVideoDataOutputSampleBufferDelega
                 update(with: faceRect, text: featureDetails.joined(separator: "\n"))
                 if faceFeature.hasSmile {
                     self.isSmileDetected = true
+                    //如果没有DetectSmile 5s后跳转到MessageViewController
                     DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2)) {
                         self.session?.stopRunning()
-                        let vc = self.storyboard?.instantiateViewController(withIdentifier: "ms")
-                        self.present(vc!, animated: true, completion: nil)
+                        let vc = self.storyboard?.instantiateViewController(withIdentifier: "ms") as! MessageViewController
+                        vc.SmileStatue = faceFeature.hasSmile
+                        
+                        self.navigationController?.pushViewController(vc, animated: true)
+                        //self.present(vc!, animated: true, completion: nil)
                         AudioServicesPlaySystemSound(1114)
                         //self.removeFromParentViewController()
                         return

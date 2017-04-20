@@ -21,6 +21,9 @@ class MessageViewController: UIViewController {
     
     fileprivate var onceFlag = false
     
+    var SmileStatue = false
+    var httpResponse = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         Coffe.image = Coffe.image?.withRenderingMode(.alwaysTemplate)
@@ -37,16 +40,51 @@ class MessageViewController: UIViewController {
 
     func present() {
         DispatchQueue.main.async() {
-            let vc = self.storyboard?.instantiateViewController(withIdentifier: "vs")
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "vs") as! AffairsViewController
+            
             AudioServicesPlaySystemSound(114)
-            self.present(vc!, animated: true, completion: nil)
+            repeat {
+                self.httpResponse = self.http(smilestatue: self.SmileStatue)
+            }while(!self.httpResponse)
+            
+            if self.httpResponse {
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
+            
         }
     }
     
-    func http() {
+    func http(smilestatue:Bool) -> Bool {
         //HTTP Request for controlling Coffe Machine
+        let session = URLSession.shared
+        let whiteurl = URL(string: "http://192.168.4.1/white")
+        let blackurl = URL(string: "http://192.168.4.1/black")
+        var url = URL(string: "http://192.168.4.1/")
+        
+        switch smilestatue {
+        case true:
+            url = whiteurl!
+        default:
+            url = blackurl!
+        }
+        
+        let urlRequest = URLRequest(url: url!)
+        var status = false
+        let task = session.dataTask(with: urlRequest, completionHandler: { (data, respons, eror) -> Void in
+            if data != nil{
+                let Respons:HTTPURLResponse = respons as! HTTPURLResponse
+                if Respons.statusCode == 200 || Respons.statusCode == 204 {
+                    status = true
+                    print(Respons.statusCode)
+                }else {
+                    print("404")
+                }
+            }else {print("No data")}
+        })
+        task.resume()
+        return status
     }
-    
+
 
     /*
     // MARK: - Navigation

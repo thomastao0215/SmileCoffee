@@ -43,13 +43,13 @@ class MessageViewController: UIViewController {
             let vc = self.storyboard?.instantiateViewController(withIdentifier: "vs") as! AffairsViewController
             
             AudioServicesPlaySystemSound(114)
-            repeat {
+//            repeat {
                 self.httpResponse = self.http(smilestatue: self.SmileStatue)
-            }while(!self.httpResponse)
+//            }while(!self.httpResponse)
             
-            if self.httpResponse {
-                self.navigationController?.pushViewController(vc, animated: true)
-            }
+//            if self.httpResponse {
+                self.present(vc, animated: true, completion: nil)
+//            }
             
         }
     }

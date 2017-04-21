@@ -45,8 +45,11 @@ class FaceTrackingViewController: UIViewController {
     var stillOutput = AVCaptureStillImageOutput()
     var borderLayer: CAShapeLayer?
     
+    fileprivate var detectedFace = false
     fileprivate var hasSmile = false
     fileprivate var isSmileDetected = false
+    
+    fileprivate var timer: DispatchSourceTimer?
     
     let detailsView: DetailsView = {
         let detailsView = DetailsView()
@@ -84,13 +87,19 @@ class FaceTrackingViewController: UIViewController {
         view.addSubview(detailsView)
         view.bringSubview(toFront: detailsView)
         
+        timer = DispatchSource.makeTimerSource()
+        timer?.setEventHandler(handler: DispatchWorkItem {
+            NotificationCenter.default.post(name: .precedureFinished, object: nil)
+        })
+        timer?.scheduleOneshot(deadline: .now() + .seconds(10))
+        timer?.resume()
+        
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         sessionPrepare()
         session?.startRunning()
-
     }
 }
 
@@ -151,19 +160,38 @@ extension FaceTrackingViewController: AVCaptureVideoDataOutputSampleBufferDelega
         guard let features = allFeatures else { return }
         
         for feature in features {
+            if !detectedFace {
+                detectedFace = true
+                timer?.cancel()
+                timer = DispatchSource.makeTimerSource()
+                timer?.setEventHandler(handler: DispatchWorkItem {
+                    let vc = self.storyboard?.instantiateViewController(withIdentifier: "ms") as! MessageViewController
+                    
+                    DispatchQueue.main.async {
+                        self.present(vc, animated: true, completion: nil)
+                    }
+                    AudioServicesPlaySystemSound(1114)
+                })
+                timer?.scheduleOneshot(deadline: .now() + .seconds(5))
+                timer?.resume()
+            }
+            
+            
             if let faceFeature = feature as? CIFaceFeature {
                 let faceRect = calculateFaceRect(facePosition: faceFeature.mouthPosition, faceBounds: faceFeature.bounds, clearAperture: cleanAperture)
                 let featureDetails = ["是否有微笑: \(faceFeature.hasSmile)"]
                 update(with: faceRect, text: featureDetails.joined(separator: "\n"))
                 if faceFeature.hasSmile {
                     self.isSmileDetected = true
+                    self.timer?.cancel()
+                    self.timer = nil
                     //如果没有DetectSmile 5s后跳转到MessageViewController
                     DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2)) {
                         self.session?.stopRunning()
                         let vc = self.storyboard?.instantiateViewController(withIdentifier: "ms") as! MessageViewController
                         vc.SmileStatue = faceFeature.hasSmile
                         
-                        self.navigationController?.pushViewController(vc, animated: true)
+                        self.present(vc, animated: true, completion: nil)
                         //self.present(vc!, animated: true, completion: nil)
                         AudioServicesPlaySystemSound(1114)
                         //self.removeFromParentViewController()

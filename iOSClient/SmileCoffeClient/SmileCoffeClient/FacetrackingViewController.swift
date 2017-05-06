@@ -188,8 +188,8 @@ extension FaceTrackingViewController: AVCaptureVideoDataOutputSampleBufferDelega
                     //如果没有DetectSmile 5s后跳转到MessageViewController
                     DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2)) {
                         self.session?.stopRunning()
-                        let vc = self.storyboard?.instantiateViewController(withIdentifier: "ms") as! MessageViewController
-                        vc.SmileStatue = faceFeature.hasSmile
+                        let vc = self.storyboard?.instantiateViewController(withIdentifier: "sl") as! SelectionViewController
+
                         
                         self.present(vc, animated: true, completion: nil)
                         //self.present(vc!, animated: true, completion: nil)

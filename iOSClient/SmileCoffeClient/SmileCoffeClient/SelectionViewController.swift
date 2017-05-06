@@ -1,58 +1,54 @@
 //
-//  MessageViewController.swift
+//  SelectionViewController.swift
 //  SmileCoffeClient
 //
-//  Created by Tao Jiachen on 2017/3/21.
+//  Created by softthree-29 on 2017/5/3.
 //  Copyright © 2017年 Thomas_Tao. All rights reserved.
 //
 
 import UIKit
-import AudioToolbox
-import AVFoundation
 
-class MessageViewController: UIViewController {
+class SelectionViewController: UIViewController {
 
+    @IBOutlet weak var CoffeeView: UIView!
+    @IBOutlet weak var ColarView: UIView!
+    @IBOutlet weak var TeaView: UIView!
+    @IBOutlet weak var JuiceView: UIView!
     
-    @IBOutlet var Coffe: UIImageView!
+    @IBAction func Coffee(_ sender: Any) {
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "pg") as! ProgressViewController
+        vc.selection = "coffee"
+        self.present(vc, animated: true, completion: nil)
+    }
     
-    @IBOutlet var Label1: UILabel!
-    
-    @IBOutlet var Label2: UILabel!
-    
-    fileprivate var onceFlag = false
-    
-    var SmileStatue = false
-    var httpResponse = false
-    
+    @IBAction func Cola(_ sender: Any) {
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "pg") as! ProgressViewController
+        vc.selection = "cola"
+        self.present(vc, animated: true, completion: nil)
+    }
+
+    @IBAction func Tea(_ sender: Any) {
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "pg") as! ProgressViewController
+        vc.selection = "tea"
+        self.present(vc, animated: true, completion: nil)
+    }
+    @IBAction func Juice(_ sender: Any) {
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "pg") as! ProgressViewController
+        vc.selection = "juice"
+
+        self.present(vc, animated: true, completion: nil)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
-        Coffe.image = Coffe.image?.withRenderingMode(.alwaysTemplate)
-        Coffe.tintColor = UIColor.brown
-    }
-    override func viewDidAppear(_ animated: Bool) {
-        if !onceFlag {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 3 ) {
-                self.present()
-            }
-            onceFlag = true
-        }
+
+        // Do any additional setup after loading the view.
     }
 
-    func present() {
-        DispatchQueue.main.async() {
-            let vc = self.storyboard?.instantiateViewController(withIdentifier: "vs") as! AffairsViewController
-            
-            AudioServicesPlaySystemSound(114)
-//            repeat {
-                self.httpResponse = self.http(smilestatue: self.SmileStatue)
-//            }while(!self.httpResponse)
-            
-//            if self.httpResponse {
-                self.present(vc, animated: true, completion: nil)
-//            }
-            
-        }
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
     }
+    
     
     func http(smilestatue:Bool) -> Bool {
         //HTTP Request for controlling Coffe Machine
@@ -85,6 +81,7 @@ class MessageViewController: UIViewController {
         return status
     }
 
+    
 
     /*
     // MARK: - Navigation

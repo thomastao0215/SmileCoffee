@@ -325,18 +325,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="7" translatesAutoresizingMaskIntoConstraints="NO" id="z0a-H0-A9s">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" fixedFrame="YES" image="7" translatesAutoresizingMaskIntoConstraints="NO" id="z0a-H0-A9s">
                                 <rect key="frame" x="98" y="250" width="178" height="167"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="z0a-H0-A9s" firstAttribute="leading" secondItem="m91-Wu-lKK" secondAttribute="leadingMargin" constant="82" id="MNo-zC-4s3"/>
-                            <constraint firstItem="z0a-H0-A9s" firstAttribute="centerY" secondItem="m91-Wu-lKK" secondAttribute="centerY" id="NvV-Ez-bhv"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="z0a-H0-A9s" secondAttribute="trailing" constant="83" id="iQ4-XJ-M62"/>
-                            <constraint firstItem="z0a-H0-A9s" firstAttribute="top" secondItem="47R-vP-19s" secondAttribute="bottom" constant="230" id="onB-TT-rKV"/>
-                            <constraint firstItem="z0a-H0-A9s" firstAttribute="centerX" secondItem="m91-Wu-lKK" secondAttribute="centerX" id="sHU-9C-e4n"/>
-                        </constraints>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
                         <outlet property="Completed" destination="z0a-H0-A9s" id="iAT-Sc-bxS"/>
@@ -344,7 +338,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="52n-ZN-b8m" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2492" y="138.0809595202399"/>
+            <point key="canvasLocation" x="2474" y="139"/>
         </scene>
         <!--Message View Controller-->
         <scene sceneID="C8F-7E-niN">

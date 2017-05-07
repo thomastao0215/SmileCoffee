@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import Canvas
+import AudioToolbox
+import AVFoundation
 
 class ProgressViewController: UIViewController {
     
@@ -23,16 +26,23 @@ class ProgressViewController: UIViewController {
     
     var cp1:CGPoint!
     var cp2:CGPoint!
+    var time = 0
 
     
     func update(){
+        time = time+1
+        if time >= 180 {
+            stopDpLink()
+            present()
+        }
+        Mouthlayer.removeFromSuperlayer()
         cp1.y = cp1.y+1.0
         cp2.y = cp2.y+1.0
         mouthPath.move(to: mouthleft)
         mouthPath.addCurve(to: mouthright, controlPoint1: cp1, controlPoint2: cp2)
         Mouthlayer.path = mouthPath.cgPath
         view.layer.addSublayer(Mouthlayer)
-        layer.removeFromSuperlayer()
+        
     }
     
     func startDpLink(){
@@ -133,6 +143,17 @@ class ProgressViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    
+    func present() {
+        DispatchQueue.main.async() {
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "vs") as! AffairsViewController
+            
+            AudioServicesPlaySystemSound(114)
+            self.present(vc, animated: true, completion: nil)
+        }
+    }
+    
     
 
     /*

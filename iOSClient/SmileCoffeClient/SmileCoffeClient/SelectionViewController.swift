@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import Canvas
 class SelectionViewController: UIViewController {
 
     @IBOutlet weak var CoffeeView: UIView!

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="kEV-ko-dpZ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="kEV-ko-dpZ">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -93,33 +93,33 @@
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WEr-wT-8Qw">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WEr-wT-8Qw" customClass="CSAnimationView">
                                 <rect key="frame" x="16" y="156" width="148" height="129"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ouS-Tc-PV6">
                                         <rect key="frame" x="15" y="7" width="118" height="115"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Button" image="coffee"/>
+                                        <state key="normal" title="Button" image="Coffeex"/>
                                         <connections>
                                             <action selector="Coffee:" destination="kEV-ko-dpZ" eventType="touchUpInside" id="wEw-MQ-085"/>
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" red="0.99877446889999999" green="0.90020018820000003" blue="0.7361947298" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y4Y-AP-Qli">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y4Y-AP-Qli" customClass="CSAnimationView">
                                 <rect key="frame" x="16" y="373" width="148" height="129"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q5X-MJ-uFE">
                                         <rect key="frame" x="15" y="7" width="118" height="115"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Button" image="milktea"/>
+                                        <state key="normal" title="Button" image="Mileteax"/>
                                         <connections>
                                             <action selector="Tea:" destination="kEV-ko-dpZ" eventType="touchUpInside" id="Rpe-I5-BOt"/>
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" red="0.99877446889999999" green="0.90020018820000003" blue="0.7361947298" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="咖啡" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Ul-ms-qdv">
                                 <rect key="frame" x="73" y="302" width="35" height="21"/>
@@ -133,33 +133,33 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view alpha="0.94999999999999996" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CVX-Do-zSa">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CVX-Do-zSa" customClass="CSAnimationView">
                                 <rect key="frame" x="211" y="156" width="148" height="129"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CNC-mN-eMS">
                                         <rect key="frame" x="15" y="7" width="118" height="115"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Button" image="cola"/>
+                                        <state key="normal" title="Button" image="Colax"/>
                                         <connections>
                                             <action selector="Cola:" destination="kEV-ko-dpZ" eventType="touchUpInside" id="qUH-Cs-Kuj"/>
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" red="0.99877446889999999" green="0.90020018820000003" blue="0.7361947298" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CPh-eg-ciN">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CPh-eg-ciN" customClass="CSAnimationView">
                                 <rect key="frame" x="211" y="373" width="148" height="129"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1ne-N0-Z7y">
                                         <rect key="frame" x="15" y="7" width="118" height="115"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Button" image="juice"/>
+                                        <state key="normal" title="Button" image="Juicex"/>
                                         <connections>
                                             <action selector="Juice:" destination="kEV-ko-dpZ" eventType="touchUpInside" id="8td-IB-bBG"/>
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" red="0.99877446889999999" green="0.90020018820000003" blue="0.7361947298" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="汽水" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fw2-im-1Iz">
                                 <rect key="frame" x="268" y="302" width="35" height="21"/>
@@ -174,7 +174,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.99877446889877319" green="0.90020018815994263" blue="0.73619472980499268" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="CPh-eg-ciN" firstAttribute="top" secondItem="fw2-im-1Iz" secondAttribute="bottom" constant="50" id="1K8-kT-ZGv"/>
                             <constraint firstItem="fw2-im-1Iz" firstAttribute="top" secondItem="CVX-Do-zSa" secondAttribute="bottom" constant="17" id="3x5-ef-hho"/>
@@ -363,9 +363,9 @@
         <image name="5" width="855" height="855"/>
         <image name="6" width="141" height="162"/>
         <image name="7" width="129" height="129"/>
-        <image name="coffee" width="176" height="176"/>
-        <image name="cola" width="175" height="175"/>
-        <image name="juice" width="179" height="179"/>
-        <image name="milktea" width="176" height="176"/>
+        <image name="Coffeex" width="501" height="501"/>
+        <image name="Colax" width="501" height="501"/>
+        <image name="Juicex" width="501" height="501"/>
+        <image name="Mileteax" width="501" height="501"/>
     </resources>
 </document>

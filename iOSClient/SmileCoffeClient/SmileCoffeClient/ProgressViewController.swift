@@ -20,6 +20,8 @@ class ProgressViewController: UIViewController {
     let mouthPath = UIBezierPath()
     var mouthleft:CGPoint!
     var mouthright:CGPoint!
+    
+    var mouthinnerLayer = CAShapeLayer()
 
     var count = 0
     var dpLink:CADisplayLink!
@@ -31,17 +33,17 @@ class ProgressViewController: UIViewController {
     
     func update(){
         time = time+1
-        if time >= 180 {
+        if time >= 120 {
             stopDpLink()
             present()
         }
-        Mouthlayer.removeFromSuperlayer()
+        mouthPath.removeAllPoints()
         cp1.y = cp1.y+1.0
         cp2.y = cp2.y+1.0
+        
         mouthPath.move(to: mouthleft)
         mouthPath.addCurve(to: mouthright, controlPoint1: cp1, controlPoint2: cp2)
         Mouthlayer.path = mouthPath.cgPath
-        view.layer.addSublayer(Mouthlayer)
         
     }
     
@@ -73,11 +75,11 @@ class ProgressViewController: UIViewController {
         
         
         
-        mouthleft = CGPoint(x: lefteye.x - 25.0, y: lefteye.y + 50.0)
-        mouthright = CGPoint(x: righteye.x + 25.0, y: lefteye.y + 50.0)
+        mouthleft = CGPoint(x: lefteye.x - 25.0, y: lefteye.y + 80.0)
+        mouthright = CGPoint(x: righteye.x + 25.0, y: lefteye.y + 80.0)
         
-        cp1 = CGPoint(x: (mouthleft.x + mouthright.x)/3.0, y: mouthleft.y + 80)
-        cp2 = CGPoint(x: (mouthleft.x + mouthright.x)*2.0/3.0, y: mouthright.y + 80)
+        cp1 = CGPoint(x: (mouthleft.x + mouthright.x)/3.0, y: mouthleft.y - 80)
+        cp2 = CGPoint(x: (mouthleft.x + mouthright.x)*2.0/3.0, y: mouthright.y - 80)
         
         let path = UIBezierPath(arcCenter: center, radius: radius, startAngle: startAngle, endAngle: endAngle, clockwise: true)
         let LEyePath = UIBezierPath(arcCenter: lefteye, radius: eyeradius, startAngle: startAngle, endAngle: endAngle, clockwise: true)
@@ -88,7 +90,7 @@ class ProgressViewController: UIViewController {
         
         mouthPath.move(to: mouthleft)
         mouthPath.addCurve(to: mouthright, controlPoint1: cp1, controlPoint2: cp2)
-        
+        mouthPath.lineWidth = 5.0
         
         layer.path = path.cgPath
         layer.fillColor = UIColor.clear.cgColor
@@ -105,6 +107,7 @@ class ProgressViewController: UIViewController {
         Mouthlayer.path = mouthPath.cgPath
         Mouthlayer.fillColor = UIColor.clear.cgColor
         Mouthlayer.strokeColor = UIColor.black.cgColor
+
         switch selection {
         case "coffee":
             Statue.text = "咖啡正在制作中"

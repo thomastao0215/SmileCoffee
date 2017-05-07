@@ -8,31 +8,44 @@
 
 import UIKit
 import Canvas
+import AVFoundation
+
 class SelectionViewController: UIViewController {
 
-    @IBOutlet weak var CoffeeView: UIView!
-    @IBOutlet weak var ColarView: UIView!
-    @IBOutlet weak var TeaView: UIView!
-    @IBOutlet weak var JuiceView: UIView!
+
+    @IBOutlet weak var CoffeeView: CSAnimationView!
+    
+    @IBOutlet weak var TeaView: CSAnimationView!
+    @IBOutlet weak var ColaView: CSAnimationView!
+    
+    @IBOutlet weak var JuiceView: CSAnimationView!
+    
     
     @IBAction func Coffee(_ sender: Any) {
+        
+        CoffeeView.startCanvasAnimation()
+        
+        
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "pg") as! ProgressViewController
         vc.selection = "coffee"
         self.present(vc, animated: true, completion: nil)
     }
     
     @IBAction func Cola(_ sender: Any) {
+        ColaView.startCanvasAnimation()
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "pg") as! ProgressViewController
         vc.selection = "cola"
         self.present(vc, animated: true, completion: nil)
     }
 
     @IBAction func Tea(_ sender: Any) {
+        TeaView.startCanvasAnimation()
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "pg") as! ProgressViewController
         vc.selection = "tea"
         self.present(vc, animated: true, completion: nil)
     }
     @IBAction func Juice(_ sender: Any) {
+        JuiceView.startCanvasAnimation()
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "pg") as! ProgressViewController
         vc.selection = "juice"
 

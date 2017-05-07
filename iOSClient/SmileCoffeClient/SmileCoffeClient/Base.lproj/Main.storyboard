@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="kEV-ko-dpZ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="kEV-ko-dpZ">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -93,7 +93,7 @@
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WEr-wT-8Qw" customClass="CSAnimationView">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WEr-wT-8Qw" userLabel="CoffeeView" customClass="CSAnimationView">
                                 <rect key="frame" x="16" y="156" width="148" height="129"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ouS-Tc-PV6">
@@ -106,8 +106,17 @@
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="type" value="shake"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="duration">
+                                        <integer key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="delay">
+                                        <integer key="value" value="0"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y4Y-AP-Qli" customClass="CSAnimationView">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y4Y-AP-Qli" userLabel="TeaView" customClass="CSAnimationView">
                                 <rect key="frame" x="16" y="373" width="148" height="129"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q5X-MJ-uFE">
@@ -120,6 +129,15 @@
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="type" value="shake"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="duration">
+                                        <integer key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="delay">
+                                        <integer key="value" value="0"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="咖啡" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Ul-ms-qdv">
                                 <rect key="frame" x="73" y="302" width="35" height="21"/>
@@ -133,7 +151,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CVX-Do-zSa" customClass="CSAnimationView">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CVX-Do-zSa" userLabel="ColaView" customClass="CSAnimationView">
                                 <rect key="frame" x="211" y="156" width="148" height="129"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CNC-mN-eMS">
@@ -146,8 +164,17 @@
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="type" value="shake"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="duration">
+                                        <integer key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="delay">
+                                        <integer key="value" value="0"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CPh-eg-ciN" customClass="CSAnimationView">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CPh-eg-ciN" userLabel="JuiceView" customClass="CSAnimationView">
                                 <rect key="frame" x="211" y="373" width="148" height="129"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1ne-N0-Z7y">
@@ -160,6 +187,15 @@
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="type" value="shake"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="duration">
+                                        <integer key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="keyPath">
+                                        <integer key="value" value="0"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="汽水" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fw2-im-1Iz">
                                 <rect key="frame" x="268" y="302" width="35" height="21"/>
@@ -222,10 +258,10 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="CoffeeView" destination="WEr-wT-8Qw" id="y1n-5N-bqa"/>
-                        <outlet property="ColarView" destination="CVX-Do-zSa" id="qEf-DY-gyg"/>
-                        <outlet property="JuiceView" destination="CPh-eg-ciN" id="IxV-Or-4iM"/>
-                        <outlet property="TeaView" destination="Y4Y-AP-Qli" id="Oz0-OQ-Gi1"/>
+                        <outlet property="CoffeeView" destination="WEr-wT-8Qw" id="vpF-yT-09z"/>
+                        <outlet property="ColaView" destination="CVX-Do-zSa" id="Hez-Kn-6ka"/>
+                        <outlet property="JuiceView" destination="CPh-eg-ciN" id="hJP-Zm-hjZ"/>
+                        <outlet property="TeaView" destination="Y4Y-AP-Qli" id="gHw-2g-pR7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aeQ-Zg-X5e" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -244,22 +280,29 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="beb-I1-fEt">
-                                <rect key="frame" x="119" y="514" width="136" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="beb-I1-fEt">
+                                <rect key="frame" x="119" y="514" width="136" height="0.0"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3o2-gr-21A">
-                                <rect key="frame" x="139" y="589" width="96" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3o2-gr-21A">
+                                <rect key="frame" x="139" y="568" width="96" height="0.0"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="3o2-gr-21A" firstAttribute="top" secondItem="N0f-Vq-7aS" secondAttribute="bottom" constant="-99" id="Hu7-k3-s6g"/>
+                            <constraint firstAttribute="trailing" secondItem="3o2-gr-21A" secondAttribute="trailing" constant="140" id="TT1-Xu-0QB"/>
+                            <constraint firstItem="beb-I1-fEt" firstAttribute="leading" secondItem="i4h-3G-hqi" secondAttribute="leadingMargin" constant="103" id="XYE-tL-wHq"/>
+                            <constraint firstItem="3o2-gr-21A" firstAttribute="top" secondItem="beb-I1-fEt" secondAttribute="bottom" constant="54" id="fLa-SQ-y1k"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="beb-I1-fEt" secondAttribute="trailing" constant="104" id="gUA-it-JS6"/>
+                            <constraint firstItem="3o2-gr-21A" firstAttribute="leading" secondItem="i4h-3G-hqi" secondAttribute="leading" constant="139" id="qOT-x6-K1c"/>
+                            <constraint firstItem="beb-I1-fEt" firstAttribute="top" secondItem="Xuw-mk-ZMV" secondAttribute="bottom" constant="494" id="xZP-Oh-TaZ"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="Statue" destination="beb-I1-fEt" id="mOY-oJ-AYT"/>
@@ -282,31 +325,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="咖啡已制作完成" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a41-Ve-nCz">
-                                <rect key="frame" x="142" y="475" width="154" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="请到咖啡机前领取" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AJ0-QO-FUR">
-                                <rect key="frame" x="134" y="545" width="162" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" fixedFrame="YES" image="7" translatesAutoresizingMaskIntoConstraints="NO" id="z0a-H0-A9s">
-                                <rect key="frame" x="118" y="242" width="178" height="167"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="7" translatesAutoresizingMaskIntoConstraints="NO" id="z0a-H0-A9s">
+                                <rect key="frame" x="98" y="250" width="178" height="167"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="z0a-H0-A9s" firstAttribute="leading" secondItem="m91-Wu-lKK" secondAttribute="leadingMargin" constant="82" id="MNo-zC-4s3"/>
+                            <constraint firstItem="z0a-H0-A9s" firstAttribute="centerY" secondItem="m91-Wu-lKK" secondAttribute="centerY" id="NvV-Ez-bhv"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="z0a-H0-A9s" secondAttribute="trailing" constant="83" id="iQ4-XJ-M62"/>
+                            <constraint firstItem="z0a-H0-A9s" firstAttribute="top" secondItem="47R-vP-19s" secondAttribute="bottom" constant="230" id="onB-TT-rKV"/>
+                            <constraint firstItem="z0a-H0-A9s" firstAttribute="centerX" secondItem="m91-Wu-lKK" secondAttribute="centerX" id="sHU-9C-e4n"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="Completed" destination="z0a-H0-A9s" id="iAT-Sc-bxS"/>
-                        <outlet property="Label1" destination="a41-Ve-nCz" id="EJm-V8-GeE"/>
-                        <outlet property="Label2" destination="AJ0-QO-FUR" id="PuX-TX-c7s"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="52n-ZN-b8m" userLabel="First Responder" sceneMemberID="firstResponder"/>

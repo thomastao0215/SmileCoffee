@@ -20,6 +20,7 @@ class ProgressViewController: UIViewController {
     let mouthPath = UIBezierPath()
     var mouthleft:CGPoint!
     var mouthright:CGPoint!
+    var selection = String()
     
     var mouthinnerLayer = CAShapeLayer()
 
@@ -33,13 +34,13 @@ class ProgressViewController: UIViewController {
     
     func update(){
         time = time+1
-        if time >= 120 {
+        if time >= 1800 {
             stopDpLink()
             present()
         }
         mouthPath.removeAllPoints()
-        cp1.y = cp1.y+1.0
-        cp2.y = cp2.y+1.0
+        cp1.y = cp1.y+0.08
+        cp2.y = cp2.y+0.08
         
         mouthPath.move(to: mouthleft)
         mouthPath.addCurve(to: mouthright, controlPoint1: cp1, controlPoint2: cp2)
@@ -56,7 +57,7 @@ class ProgressViewController: UIViewController {
     }
     
     
-    var selection = String()
+    
     
     @IBOutlet weak var Statue: UILabel!
     
@@ -65,7 +66,7 @@ class ProgressViewController: UIViewController {
     
     
     override open func viewWillAppear(_ animated: Bool) {
-        let radius: CGFloat = 100.0
+        let radius: CGFloat = 120.0
         let startAngle: CGFloat = 0.0
         let endAngle: CGFloat = CGFloat(Double.pi * 2)
         let center = CGPoint(x: view.center.x, y: view.center.y - 100.0)
@@ -75,11 +76,11 @@ class ProgressViewController: UIViewController {
         
         
         
-        mouthleft = CGPoint(x: lefteye.x - 25.0, y: lefteye.y + 80.0)
-        mouthright = CGPoint(x: righteye.x + 25.0, y: lefteye.y + 80.0)
+        mouthleft = CGPoint(x: lefteye.x - 25.0, y: lefteye.y + 75.0)
+        mouthright = CGPoint(x: righteye.x + 25.0, y: lefteye.y + 75.0)
         
-        cp1 = CGPoint(x: (mouthleft.x + mouthright.x)/3.0, y: mouthleft.y - 80)
-        cp2 = CGPoint(x: (mouthleft.x + mouthright.x)*2.0/3.0, y: mouthright.y - 80)
+        cp1 = CGPoint(x: (mouthleft.x + mouthright.x)/3.0, y: mouthleft.y - 75)
+        cp2 = CGPoint(x: (mouthleft.x + mouthright.x)*2.0/3.0, y: mouthright.y - 75)
         
         let path = UIBezierPath(arcCenter: center, radius: radius, startAngle: startAngle, endAngle: endAngle, clockwise: true)
         let LEyePath = UIBezierPath(arcCenter: lefteye, radius: eyeradius, startAngle: startAngle, endAngle: endAngle, clockwise: true)
@@ -93,35 +94,29 @@ class ProgressViewController: UIViewController {
         mouthPath.lineWidth = 5.0
         
         layer.path = path.cgPath
+        layer.lineWidth = 8
         layer.fillColor = UIColor.clear.cgColor
-        layer.strokeColor = UIColor.black.cgColor
+        layer.strokeColor = UIColor.orange.cgColor
         
         LElayer.path = LEyePath.cgPath
-        LElayer.fillColor = UIColor.clear.cgColor
-        LElayer.strokeColor = UIColor.black.cgColor
+        LElayer.lineWidth = 8
+        LElayer.fillColor = UIColor.orange.cgColor
+        LElayer.strokeColor = UIColor.clear.cgColor
         
         RElayer.path = REyePath.cgPath
-        RElayer.fillColor = UIColor.clear.cgColor
-        RElayer.strokeColor = UIColor.black.cgColor
+        RElayer.lineWidth = 8
+        RElayer.fillColor = UIColor.orange.cgColor
+        RElayer.strokeColor = UIColor.clear.cgColor
         
         Mouthlayer.path = mouthPath.cgPath
         Mouthlayer.fillColor = UIColor.clear.cgColor
         Mouthlayer.strokeColor = UIColor.black.cgColor
-
-        switch selection {
-        case "coffee":
-            Statue.text = "咖啡正在制作中"
-        case "cola":
-            Statue.text = "汽水正在制作中"
-        case "tea":
-            Statue.text = "绿茶正在制作中"
-        case "juice":
-            Statue.text = "果汁正在制作中"
-        default:
-            Statue.text = "正在制作中"
-        }
-        Wait.text = "请稍候"
         
+
+        
+        Mouthlayer.strokeColor = UIColor.orange.cgColor
+        Mouthlayer.lineWidth = 10
+        Mouthlayer.lineCap = kCALineCapRound
         view.layer.addSublayer(layer)
         view.layer.addSublayer(LElayer)
         view.layer.addSublayer(RElayer)
@@ -138,7 +133,21 @@ class ProgressViewController: UIViewController {
         // Do any additional setup after loading the view.
         
         
-       
+        Statue.text = "汽水正在制作中"
+        
+        switch selection {
+        case "Coffex":
+            Statue.text = "咖啡正在制作中"
+        case "Colax":
+            Statue.text = "汽水正在制作中"
+        case "Milkteax":
+            Statue.text = "奶茶正在制作中"
+        case "Juicex":
+            Statue.text = "果汁正在制作中"
+        default:
+            Statue.text = "正在制作中"
+        }
+        Wait.text = "请稍候"
 
     }
 
@@ -151,13 +160,54 @@ class ProgressViewController: UIViewController {
     func present() {
         DispatchQueue.main.async() {
             let vc = self.storyboard?.instantiateViewController(withIdentifier: "vs") as! AffairsViewController
-            
-            AudioServicesPlaySystemSound(114)
+            vc.selectionx = self.selection
+            AudioServicesPlaySystemSound(1114)
+            self.http(smilestatus: true)
             self.present(vc, animated: true, completion: nil)
+            
+            
+            
         }
     }
     
     
+    func http(smilestatus:Bool) -> Bool {
+        //HTTP Request for controlling Coffe Machine
+        let session = URLSession.shared
+        let whiteurl = URL(string: "http://172.17.178.66:3000/white")
+        let blackurl = URL(string: "http://192.168.1.112:3000/black")
+        var url = URL(string: "http://192.168.1.112:3000/")
+        
+        switch smilestatus {
+        case true:
+            url = whiteurl!
+        default:
+            url = blackurl!
+        }
+        print("here")
+        let urlRequest = URLRequest(url: url!)
+        var status = false
+        let task = try session.dataTask(with: urlRequest, completionHandler: { (data, respons, eror) -> Void in
+            if data != nil{
+                let Respons:HTTPURLResponse = respons as! HTTPURLResponse
+                if Respons.statusCode == 200 || Respons.statusCode == 304 {
+                    status = true
+                    print(Respons.statusCode)
+                    //                    let json = try? JSONSerialization.jsonObject(with: data!, options: [])
+                    //                    print(json!)
+                }else {
+                    print("hell")
+                }
+            }else {print("efq")}
+        })
+        
+        task.resume()
+        return status
+    }
+    
+    
+    
+
 
     /*
     // MARK: - Navigation

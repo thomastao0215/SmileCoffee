@@ -19,41 +19,47 @@ class SelectionViewController: UIViewController {
     @IBOutlet weak var ColaView: CSAnimationView!
     
     @IBOutlet weak var JuiceView: CSAnimationView!
-    
-    
     @IBAction func Coffee(_ sender: Any) {
-        
+        http(smilestatus: true)
         CoffeeView.startCanvasAnimation()
         
-        
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "pg") as! ProgressViewController
-        vc.selection = "coffee"
+        
+        vc.selection = "Coffeex"
+        AudioServicesPlaySystemSound(1025)
         self.present(vc, animated: true, completion: nil)
+        
     }
-    
     @IBAction func Cola(_ sender: Any) {
+        http(smilestatus: true)
         ColaView.startCanvasAnimation()
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "pg") as! ProgressViewController
-        vc.selection = "cola"
+        vc.selection = "Colax"
+        AudioServicesPlaySystemSound(1025)
         self.present(vc, animated: true, completion: nil)
     }
 
     @IBAction func Tea(_ sender: Any) {
+        http(smilestatus: true)
         TeaView.startCanvasAnimation()
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "pg") as! ProgressViewController
-        vc.selection = "tea"
+        vc.selection = "Milkteax"
+        AudioServicesPlaySystemSound(1025)
         self.present(vc, animated: true, completion: nil)
     }
     @IBAction func Juice(_ sender: Any) {
+        http(smilestatus: true)
         JuiceView.startCanvasAnimation()
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "pg") as! ProgressViewController
-        vc.selection = "juice"
 
+        vc.selection = "Juicex"
+        AudioServicesPlaySystemSound(1025)
         self.present(vc, animated: true, completion: nil)
     }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
     }
 
@@ -62,37 +68,43 @@ class SelectionViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    
-    func http(smilestatue:Bool) -> Bool {
+    func http(smilestatus:Bool) -> Bool {
         //HTTP Request for controlling Coffe Machine
         let session = URLSession.shared
-        let whiteurl = URL(string: "http://192.168.4.1/white")
-        let blackurl = URL(string: "http://192.168.4.1/black")
-        var url = URL(string: "http://192.168.4.1/")
+        let whiteurl = URL(string: "http://192.168.1.102:3000/white")
+        let blackurl = URL(string: "http://192.168.1.112:3000/black")
+        var url = URL(string: "http://192.168.1.112:3000/")
         
-        switch smilestatue {
+        switch smilestatus {
         case true:
             url = whiteurl!
         default:
             url = blackurl!
         }
-        
+        print("here")
         let urlRequest = URLRequest(url: url!)
         var status = false
-        let task = session.dataTask(with: urlRequest, completionHandler: { (data, respons, eror) -> Void in
+        let task =  session.dataTask(with: urlRequest, completionHandler: { (data, respons, eror) -> Void in
             if data != nil{
                 let Respons:HTTPURLResponse = respons as! HTTPURLResponse
-                if Respons.statusCode == 200 || Respons.statusCode == 204 {
+                if Respons.statusCode == 200 || Respons.statusCode == 304 {
                     status = true
                     print(Respons.statusCode)
+                                        let json = try? JSONSerialization.jsonObject(with: data!, options: [])
+                                        print(json!)
                 }else {
-                    print("404")
+                    print("hell")
                 }
-            }else {print("No data")}
+            }else {print("efq")}
         })
+        
         task.resume()
         return status
     }
+    
+    
+
+
 
     
 

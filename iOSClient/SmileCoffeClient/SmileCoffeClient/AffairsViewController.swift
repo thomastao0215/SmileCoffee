@@ -9,8 +9,11 @@
 import UIKit
 import AVFoundation
 import AudioToolbox
+import Canvas
+
 
 class AffairsViewController: UIViewController {
+
 
 
     let layer = CAShapeLayer()
@@ -18,19 +21,26 @@ class AffairsViewController: UIViewController {
     let layery = CAShapeLayer()
     var path = UIBezierPath()
     var path1 = UIBezierPath()
+    
+    var selectionx:String = ""
+    
+    @IBOutlet var MessageView: CSAnimationView!
+    
+    let viewx = UIView()
     @IBOutlet var Completed: UIImageView!
     
-    @IBOutlet var Label1: UILabel!
+
     
-    @IBOutlet var Label2: UILabel!
-    
-    
+
     override func viewWillAppear(_ animated: Bool) {
+        
+        view.addSubview(viewx)
+        
         
         let startAngle: CGFloat = 0.0
         let radius: CGFloat = 100.0
         let endAngle: CGFloat = CGFloat(Double.pi * 2)
-        let center = CGPoint(x: view.center.x, y: view.center.y - 100.0)
+        let center = CGPoint(x: view.center.x, y: view.center.y)
         
         
         path1.move(to: center)
@@ -44,14 +54,15 @@ class AffairsViewController: UIViewController {
         path.lineCapStyle = CGLineCap.butt
         
         layer.path = path.cgPath
-        
+        layer.lineWidth = 10
         layer.fillColor = UIColor.clear.cgColor
-        layer.strokeColor = UIColor.black.cgColor
+        layer.strokeColor = UIColor.orange.cgColor
         self.path.stroke()
         
-
-        view.layer.addSublayer(layer)
-        view.layer.addSublayer(layerx)
+        Completed.image = UIImage.init(named: selectionx)
+//        view.layer.addSublayer(layer)
+//        view.layer.addSublayer(layerx)
+        MessageView.startCanvasAnimation()
     
         
     }
@@ -59,6 +70,7 @@ class AffairsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         // Do any additional setup after loading the view.
 
     }

@@ -17,6 +17,7 @@
 		8A1E430F1E7FEC9C006AEDDC /* SmileCoffeClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1E430E1E7FEC9C006AEDDC /* SmileCoffeClientTests.swift */; };
 		8A1E431A1E7FF2A5006AEDDC /* FacetrackingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1E43191E7FF2A5006AEDDC /* FacetrackingViewController.swift */; };
 		8A1E431C1E800C04006AEDDC /* AffairsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1E431B1E800C04006AEDDC /* AffairsViewController.swift */; };
+		8A8933601EC28BFE0058D3C4 /* xxxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A89335F1EC28BFE0058D3C4 /* xxxViewController.swift */; };
 		8AEFFD821E80E4510087B8AB /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AEFFD811E80E4500087B8AB /* MessageViewController.swift */; };
 		8D2A9E1B1EBA0FB000832383 /* SelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D2A9E1A1EBA0FB000832383 /* SelectionViewController.swift */; };
 		8D2B89191EBDA1BF00346B94 /* ProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D2B89181EBDA1BF00346B94 /* ProgressViewController.swift */; };
@@ -47,6 +48,7 @@
 		8A1E43101E7FEC9C006AEDDC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8A1E43191E7FF2A5006AEDDC /* FacetrackingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacetrackingViewController.swift; sourceTree = "<group>"; };
 		8A1E431B1E800C04006AEDDC /* AffairsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AffairsViewController.swift; sourceTree = "<group>"; };
+		8A89335F1EC28BFE0058D3C4 /* xxxViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = xxxViewController.swift; sourceTree = "<group>"; };
 		8AEFFD811E80E4500087B8AB /* MessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
 		8D2A9E1A1EBA0FB000832383 /* SelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectionViewController.swift; sourceTree = "<group>"; };
 		8D2B89181EBDA1BF00346B94 /* ProgressViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressViewController.swift; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 				8A1E42F61E7FEC9C006AEDDC /* AppDelegate.swift */,
 				8A1E42F81E7FEC9C006AEDDC /* ViewController.swift */,
 				8A1E42FA1E7FEC9C006AEDDC /* Main.storyboard */,
+				8A89335F1EC28BFE0058D3C4 /* xxxViewController.swift */,
 				8D2B89181EBDA1BF00346B94 /* ProgressViewController.swift */,
 				8D2A9E1A1EBA0FB000832383 /* SelectionViewController.swift */,
 				8AEFFD811E80E4500087B8AB /* MessageViewController.swift */,
@@ -306,6 +309,7 @@
 				8D2B89191EBDA1BF00346B94 /* ProgressViewController.swift in Sources */,
 				8AEFFD821E80E4510087B8AB /* MessageViewController.swift in Sources */,
 				8A1E42F71E7FEC9C006AEDDC /* AppDelegate.swift in Sources */,
+				8A8933601EC28BFE0058D3C4 /* xxxViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -447,6 +451,7 @@
 				DEVELOPMENT_TEAM = FBYF9V6M6A;
 				EMBED_ASSET_PACKS_IN_PRODUCT_BUNDLE = NO;
 				INFOPLIST_FILE = SmileCoffeClient/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -468,6 +473,7 @@
 				DEVELOPMENT_TEAM = FBYF9V6M6A;
 				EMBED_ASSET_PACKS_IN_PRODUCT_BUNDLE = NO;
 				INFOPLIST_FILE = SmileCoffeClient/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",

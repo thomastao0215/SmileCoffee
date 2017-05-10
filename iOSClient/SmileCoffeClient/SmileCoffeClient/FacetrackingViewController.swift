@@ -23,7 +23,7 @@ class DetailsView: UIView {
     }()
     
     func setup() {
-        layer.borderColor = UIColor.red.withAlphaComponent(0.7).cgColor
+        layer.borderColor = UIColor.orange.withAlphaComponent(0.7).cgColor
         layer.borderWidth = 5.0
         
         addSubview(detailsLabel)
@@ -33,7 +33,9 @@ class DetailsView: UIView {
         didSet(newFrame) {
             var detailsFrame = detailsLabel.frame
             detailsFrame = CGRect(x: 0, y: newFrame.size.height, width: newFrame.size.width * 2.0, height: newFrame.size.height / 2.0)
+
             detailsLabel.frame = detailsFrame
+            
         }
     }
 }
@@ -93,6 +95,10 @@ class FaceTrackingViewController: UIViewController {
         })
         timer?.scheduleOneshot(deadline: .now() + .seconds(10))
         timer?.resume()
+        
+//        let Infor = UIView(frame: CGRect(x: 0, y: 600, width: 375, height: 67))
+//        Infor.backgroundColor = UIColor.red
+//        view.addSubview(Infor)
         
     }
     
@@ -159,6 +165,19 @@ extension FaceTrackingViewController: AVCaptureVideoDataOutputSampleBufferDelega
         
         guard let features = allFeatures else { return }
         
+        
+        let enmux = [
+            "牙真白！👀",
+            "好喜欢你的笑～😊",
+            "你笑的样子真好看～🌟",
+            "你就是大太阳！🌞",
+            "又是元气满满的一天！👌",
+            "哈哈哈哈哈哈哈😄",
+            "你笑了全世界都亮了💡！",
+            "跟我一起说：茄子🍆！"
+        ]
+        
+        
         for feature in features {
             if !detectedFace {
                 detectedFace = true
@@ -176,12 +195,18 @@ extension FaceTrackingViewController: AVCaptureVideoDataOutputSampleBufferDelega
                 timer?.resume()
             }
             
+
+            var random = Int(arc4random() % 8)
+            
+            let string = enmux[random]
+            
             
             if let faceFeature = feature as? CIFaceFeature {
                 let faceRect = calculateFaceRect(facePosition: faceFeature.mouthPosition, faceBounds: faceFeature.bounds, clearAperture: cleanAperture)
-                let featureDetails = ["是否有微笑: \(faceFeature.hasSmile)"]
+                let featureDetails = [string]
                 update(with: faceRect, text: featureDetails.joined(separator: "\n"))
                 if faceFeature.hasSmile {
+                    
                     self.isSmileDetected = true
                     self.timer?.cancel()
                     self.timer = nil
@@ -287,6 +312,7 @@ extension FaceTrackingViewController {
     func update(with faceRect: CGRect, text: String) {
         DispatchQueue.main.async {
             UIView.animate(withDuration: 0.2) {
+                self.detailsView.detailsLabel.font = UIFont (name: "System", size: 24)
                 self.detailsView.detailsLabel.text = text
                 self.detailsView.alpha = 1.0
                 self.detailsView.frame = faceRect

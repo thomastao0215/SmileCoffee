@@ -16,7 +16,7 @@ class xxxViewController: UIViewController {
     func http(smilestatus:Bool) -> Bool {
         //HTTP Request for controlling Coffe Machine
         let session = URLSession.shared
-        let whiteurl = URL(string: "http://172.17.178.66:3000/white")
+        let whiteurl = URL(string: "https://api.github.com/")
         let blackurl = URL(string: "http://192.168.1.112:3000/black")
         var url = URL(string: "http://192.168.1.112:3000/")
         
@@ -35,8 +35,8 @@ class xxxViewController: UIViewController {
                 if Respons.statusCode == 200 || Respons.statusCode == 304 {
                     status = true
                     print(Respons.statusCode)
-                    //                    let json = try? JSONSerialization.jsonObject(with: data!, options: [])
-                    //                    print(json!)
+                                        let json = try? JSONSerialization.jsonObject(with: data!, options: [])
+                                        print(json!)
                 }else {
                     print("hell")
                 }

@@ -184,8 +184,8 @@ extension FaceTrackingViewController: AVCaptureVideoDataOutputSampleBufferDelega
                 timer?.cancel()
                 timer = DispatchSource.makeTimerSource()
                 timer?.setEventHandler(handler: DispatchWorkItem {
-                    let vc = self.storyboard?.instantiateViewController(withIdentifier: "ms") as! MessageViewController
-                    
+                    let vc = self.storyboard?.instantiateViewController(withIdentifier: "sl") as! SelectionViewController
+                    vc.SmileStatue = false
                     DispatchQueue.main.async {
                         self.present(vc, animated: true, completion: nil)
                     }
@@ -210,11 +210,11 @@ extension FaceTrackingViewController: AVCaptureVideoDataOutputSampleBufferDelega
                     self.isSmileDetected = true
                     self.timer?.cancel()
                     self.timer = nil
-                    //如果没有DetectSmile 5s后跳转到MessageViewController
+                    //如果没有DetectSmile 5s后跳转到SelectionViewController
                     DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2)) {
                         self.session?.stopRunning()
                         let vc = self.storyboard?.instantiateViewController(withIdentifier: "sl") as! SelectionViewController
-
+                        vc.SmileStatue = true
                         
                         self.present(vc, animated: true, completion: nil)
                         //self.present(vc!, animated: true, completion: nil)

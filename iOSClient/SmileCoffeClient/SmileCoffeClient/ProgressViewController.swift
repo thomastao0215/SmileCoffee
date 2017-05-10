@@ -136,7 +136,7 @@ class ProgressViewController: UIViewController {
         Statue.text = "汽水正在制作中"
         
         switch selection {
-        case "Coffex":
+        case "Coffeex":
             Statue.text = "咖啡正在制作中"
         case "Colax":
             Statue.text = "汽水正在制作中"
@@ -161,8 +161,7 @@ class ProgressViewController: UIViewController {
         DispatchQueue.main.async() {
             let vc = self.storyboard?.instantiateViewController(withIdentifier: "vs") as! AffairsViewController
             vc.selectionx = self.selection
-            AudioServicesPlaySystemSound(1114)
-            self.http(smilestatus: true)
+            AudioServicesPlaySystemSound(1028)
             self.present(vc, animated: true, completion: nil)
             
             
@@ -171,39 +170,7 @@ class ProgressViewController: UIViewController {
     }
     
     
-    func http(smilestatus:Bool) -> Bool {
-        //HTTP Request for controlling Coffe Machine
-        let session = URLSession.shared
-        let whiteurl = URL(string: "http://172.17.178.66:3000/white")
-        let blackurl = URL(string: "http://192.168.1.112:3000/black")
-        var url = URL(string: "http://192.168.1.112:3000/")
-        
-        switch smilestatus {
-        case true:
-            url = whiteurl!
-        default:
-            url = blackurl!
-        }
-        print("here")
-        let urlRequest = URLRequest(url: url!)
-        var status = false
-        let task = try session.dataTask(with: urlRequest, completionHandler: { (data, respons, eror) -> Void in
-            if data != nil{
-                let Respons:HTTPURLResponse = respons as! HTTPURLResponse
-                if Respons.statusCode == 200 || Respons.statusCode == 304 {
-                    status = true
-                    print(Respons.statusCode)
-                    //                    let json = try? JSONSerialization.jsonObject(with: data!, options: [])
-                    //                    print(json!)
-                }else {
-                    print("hell")
-                }
-            }else {print("efq")}
-        })
-        
-        task.resume()
-        return status
-    }
+
     
     
     

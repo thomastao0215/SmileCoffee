@@ -12,7 +12,7 @@ import AVFoundation
 
 class SelectionViewController: UIViewController {
 
-
+    var SmileStatue = false
     @IBOutlet weak var CoffeeView: CSAnimationView!
     
     @IBOutlet weak var TeaView: CSAnimationView!
@@ -20,40 +20,41 @@ class SelectionViewController: UIViewController {
     
     @IBOutlet weak var JuiceView: CSAnimationView!
     @IBAction func Coffee(_ sender: Any) {
-        http(smilestatus: true)
+        http(smilestatus: SmileStatue)
         CoffeeView.startCanvasAnimation()
         
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "pg") as! ProgressViewController
         
         vc.selection = "Coffeex"
-        AudioServicesPlaySystemSound(1025)
+        AudioServicesPlaySystemSound(1306)
+        
         self.present(vc, animated: true, completion: nil)
         
     }
     @IBAction func Cola(_ sender: Any) {
-        http(smilestatus: true)
+        http(smilestatus: SmileStatue)
         ColaView.startCanvasAnimation()
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "pg") as! ProgressViewController
         vc.selection = "Colax"
-        AudioServicesPlaySystemSound(1025)
+        AudioServicesPlaySystemSound(1306)
         self.present(vc, animated: true, completion: nil)
     }
 
     @IBAction func Tea(_ sender: Any) {
-        http(smilestatus: true)
+        http(smilestatus: SmileStatue)
         TeaView.startCanvasAnimation()
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "pg") as! ProgressViewController
         vc.selection = "Milkteax"
-        AudioServicesPlaySystemSound(1025)
+        AudioServicesPlaySystemSound(1306)
         self.present(vc, animated: true, completion: nil)
     }
     @IBAction func Juice(_ sender: Any) {
-        http(smilestatus: true)
+        http(smilestatus: SmileStatue)
         JuiceView.startCanvasAnimation()
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "pg") as! ProgressViewController
 
         vc.selection = "Juicex"
-        AudioServicesPlaySystemSound(1025)
+        AudioServicesPlaySystemSound(1306)
         self.present(vc, animated: true, completion: nil)
     }
     
@@ -61,6 +62,7 @@ class SelectionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        print(SmileStatue)
     }
 
     override func didReceiveMemoryWarning() {
@@ -71,9 +73,10 @@ class SelectionViewController: UIViewController {
     func http(smilestatus:Bool) -> Bool {
         //HTTP Request for controlling Coffe Machine
         let session = URLSession.shared
-        let whiteurl = URL(string: "http://192.168.1.102:3000/white")
-        let blackurl = URL(string: "http://192.168.1.112:3000/black")
-        var url = URL(string: "http://192.168.1.112:3000/")
+        let whiteurl = URL(string: "http://192.168.4.1/white")
+        let blackurl = URL(string: "http://192.168.4.1/black")
+        var url = URL(string: "http://192.168.4.1/")
+        
         
         switch smilestatus {
         case true:
@@ -90,12 +93,12 @@ class SelectionViewController: UIViewController {
                 if Respons.statusCode == 200 || Respons.statusCode == 304 {
                     status = true
                     print(Respons.statusCode)
-                                        let json = try? JSONSerialization.jsonObject(with: data!, options: [])
-                                        print(json!)
+//                                        let json = try? JSONSerialization.jsonObject(with: data!, options: [])
+//                                        print(json!)
                 }else {
-                    print("hell")
+                    print("404")
                 }
-            }else {print("efq")}
+            }else {print("Request Fobidden,Check whether in same network")}
         })
         
         task.resume()
